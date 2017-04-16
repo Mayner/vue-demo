@@ -1,6 +1,6 @@
 <template>
     <div class="star" :class="starType">
-        <span v-for="itemClass in itemClasses" :class="itmeClass" class="star-item" track-by="$index"></span>
+        <span v-for="itemClass in itemClasses" :class="itemClass" class="star-item" track-by="$index"></span>
     </div>
 </template>
 
@@ -45,7 +45,7 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
     @import '../../common/stylus/mixin.styl'
-    
+
     .star
         font-size: 0
         .star-item

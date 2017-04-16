@@ -23,7 +23,8 @@
             </div>
         </div>
         <div class="bulletin-wrapper"  @click="showDetail">
-            <span class="bulletin-title"></span><span class="bulletin-text">{{seller.bulletin}}</span>
+            <span class="bulletin-title"></span>
+            <span class="bulletin-text">{{seller.bulletin}}</span>
             <i class="icon-keyboard_arrow_right"></i>
         </div>
         <div class="background">
@@ -33,7 +34,9 @@
             <div class="detail-wrapper clearfix">
                 <div class="detail-main">
                     <h1 class="name">{{seller.name}}</h1>
-                    <star :size="48" :score="seller.score"></star>
+                    <div class="star-wrapper">
+                        <star :size="48" :score="seller.score"></star>
+                    </div>
                 </div>
             </div>
             <div class="detail-close" @click="hideDetail">
@@ -53,7 +56,7 @@
         },
         data() {
             return {
-                detailShow: false
+                detailShow: true
             };
         },
         methods: {
@@ -167,7 +170,7 @@
                 font-size: 10px
                 bg-image('bulletin')
                 background-size: 22px 12px
-                background-repeat: no-repeat 
+                background-repeat: no-repeat
             .bulletin-text
                 vertical-align: top
                 margin: 0 4px
@@ -205,6 +208,10 @@
                         font-weight 700
                         line-height 16px
                         text-align center
+                    .star-wrapper
+                        margin-top: 18px
+                        padding: 2px 0
+                        text-align: center
             .detail-close
                 position: relative
                 height: 32px
