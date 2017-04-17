@@ -1,2 +1,6 @@
 # vue-demo
-用vue模仿外卖app
+基于vue的外卖app demo
+## 项目运行
+* cd sell
+* npm install
+* npm run dev
