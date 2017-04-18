@@ -75,7 +75,7 @@
         },
         data() {
             return {
-                detailShow: true
+                detailShow: false
             };
         },
         methods: {
