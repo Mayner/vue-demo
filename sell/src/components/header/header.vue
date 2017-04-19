@@ -136,9 +136,11 @@
                 .support
                     .icon
                         display: inline-block
+                        vertical-align: top
                         width: 12px
                         height: 12px
-                        vertical-align: top
+                        background-size: 12px 12px
+                        background-repeat: no-repeat
                         &.decrease
                             bg-image('decrease_1')
                         &.discount
@@ -149,8 +151,6 @@
                             bg-image('invoice_1')
                         &.special
                             bg-image('special_1')
-                        background-size: 12px 12px
-                        background-repeat: no-repeat
                     .text
                         margin-left: 4px
                         font-size: 10px
