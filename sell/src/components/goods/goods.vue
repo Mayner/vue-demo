@@ -136,4 +136,6 @@
                         line-height: 14px
                         font-size: 14px
                         color: rgb(7, 17, 27)
+                    .desc
+                        margin-bottom: 8px
 </style>
