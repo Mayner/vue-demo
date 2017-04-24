@@ -66,11 +66,11 @@
                 }
             });
         },
-        method: {
+        methods: {
             _initScroll() {
                 this.menuScroll = new BScroll(this.$els.menuWrapper, {});
                 this.foodsScroll = new BScroll(this.$els.foodsWrapper, {});
-            };
+            }
         }
     };
 </script>
