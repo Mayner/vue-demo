@@ -39,8 +39,8 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import "BScroll" from 'better-scroll';
-    
+    import BScroll from 'better-scroll';
+
     const ERR_OK = 0;
 
     export default {
