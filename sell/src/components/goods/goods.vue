@@ -58,14 +58,14 @@
             currentIndex() {
                 for (let i = 0; i < this.listHeight.length; i++) {
                     let height1 = this.listHeight[i];
-                    let height2 = this.listHeight[i+1];
+                    let height2 = this.listHeight[i + 1];
                     if (!height2 || (this.scrollY >= height1 && this.srcollY < height2)) {
                         return i;
                     }
                 }
                 return 0;
             }
-        }
+        },
         created() {
             this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
             this.$http.get('/api/goods').then((respones) => {
@@ -123,11 +123,11 @@
                 line-height: 14px
                 padding: 0 12px
                 &.current
-                    position: relative;
+                    position: relative
                     z-index: 10
                     margin-top: -1px
-                    background: #fff;
-                    font-weight: 700;
+                    background: #fff
+                    font-weight: 700
                     .text
                         border-none()
                 .icon
