@@ -105,6 +105,9 @@
                 let el = foodList[index];
                 this.foodsScroll.scrollToElement(el, 300);
             },
+            _drop(target) {
+                
+            },
             _initScroll() {
                 this.menuScroll = new BScroll(this.$els.menuWrapper, {
                     click: true
@@ -131,6 +134,11 @@
         components: {
             shopcart,
             cartcontrol
+        },
+        events: {
+            'cart.add'(target) {
+                this._drop(target);
+            }
         }
     };
 </script>
