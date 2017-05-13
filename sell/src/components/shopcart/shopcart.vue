@@ -1,6 +1,6 @@
 <template>
     <div class="shopcart">
-        <div class="content">
+        <div class="content" @click="toggleList">
             <div class="content-left">
                 <div class="logo-wrapper">
                     <div class="logo" :class="{'highlight': totalCount>0}">
@@ -22,10 +22,30 @@
                 <div class="inner inner-hook"></div>
             </div>
         </div>
+        <div class="shopcart-list" v-show="listShow">
+            <div class="list-header">
+                <h1 class="title">购物车</h1>
+                <span class="empty">清空</span>
+            </div>
+            <div class="list-content">
+                <ul>
+                    <li class="food" v-for="food in selectFoods">
+                        <span class="name">{{food.name}}</span>
+                        <div class="price">
+                            <span>¥{{food.price*food.count}}</span>
+                            <div class="cartcontrol-wrapper">
+                            <cartcontrol :food="food"></cartcontrol>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
+    import cartcontrol from 'components/cartcontrol/cartcontrol';
     export default {
         props: {
             selectFoods: {
@@ -62,7 +82,8 @@
                         show: false
                     }
                 ],
-                dropBall: []
+                dropBalls: [],
+                fold: true
             };
         },
         computed: {
@@ -96,6 +117,14 @@
                 } else {
                     return 'enough';
                 }
+            },
+            listShow() {
+                if (!this.totalCount) {
+                    this.fold = true;
+                    return false;
+                }
+                let show = !this.fold;
+                return show;
             }
         },
         methods: {
@@ -109,6 +138,12 @@
                         return;
                     }
                 }
+            },
+            toggleList() {
+                if (!this.totalCount) {
+                    return;
+                }
+                this.fold = !this.fold;
             }
         },
         transitions: {
@@ -149,6 +184,9 @@
                     }
                 }
             }
+        },
+        components: {
+            cartcontrol
         }
     };
 
@@ -228,7 +266,7 @@
                     line-height: 24px
                     font-size: 10px
             .content-right
-                flex: 0 0 105px
+                flex: 0 0 90px
                 width: 105px
                 .pay
                     height: 48px
@@ -249,11 +287,11 @@
                 bottom: 22px
                 z-index: 200
                 &.drop-transition
-                    transition: all 0.4s
+                    transition: all 0.4s cubic-bezier(0.49,-0.29,0.83,0.67)
                     .inner
                         width: 16px
                         height: 16px
                         border-radius: 50%
                         background: rgb(0, 160, 220)
-                        transition: all 0.4s
+                        transition: all 0.4s linear
 </style>
